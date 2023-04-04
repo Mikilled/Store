@@ -93,13 +93,13 @@
                 <h2>Оставьте заявку</h2>
                 <p>Заполните форму и мы обязательно свяжемся с вами</p>
                 <div class="inputBox">
-                    <input type="email" placeholder="Введите ваше имя">
+                    <input type="email" class="name" placeholder="Введите ваше имя">
                 </div>
                 <div class="inputBox">
                     <input type="text" class="phone" placeholder="Введите ваш телефон">
                 </div>
                 <div class="inputBox">
-                    <input type="submit" value="Оставить заявку" class="btn">
+                    <input type="submit" value="Оставить заявку" class="btn" onclick="submitForm();">
                 </div>
             </div>
             <a class="close" onclick="popupToggle();" ><img src="images\krestik.png"></a>
@@ -107,6 +107,22 @@
         <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
         <script>
+            // function submitForm() {
+            //     var popupContent = document.querySelector('#popup .content');
+            //     popupContent.innerHTML = '<h2>Спасибо за заявку!</h2><p>Мы свяжемся с вами в ближайшее время.</p>';
+            // }
+            function submitForm() {
+                var Input = document.querySelector('.phone');
+                if (!Input.value) {
+                    alert('Пожалуйста, введите номер телефона.');
+                    return;
+                }
+                console.log(Input.value)
+                Input = document.querySelector('.name');
+                console.log(Input.value)
+                var popupContent = document.querySelector('#popup .content');
+                popupContent.innerHTML = '<h2>Спасибо за заявку!</h2><p>Мы свяжемся с вами в ближайшее время.</p>';
+            }
             function popupToggle(){
                 const  popup = document.getElementById('popup');
                 popup.classList.toggle('active')
